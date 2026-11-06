@@ -6,3 +6,56 @@
 .audio-playhead{position:absolute;top:25px;bottom:0;width:2px;background:#29232a;z-index:4;pointer-events:none;transform:translateX(-1px);box-shadow:0 0 0 1px #ffffffb3}.audio-playhead>span{position:absolute;top:-3px;left:-4px;width:10px;height:10px;background:#29232a;clip-path:polygon(0 0,100% 0,100% 45%,50% 100%,0 45%)}.audio-time-info{display:flex;flex-direction:column;gap:7px;min-width:0}.audio-time-info>#selectedInterval{font:10px ui-monospace,monospace;color:#9b8484}.audio-position{display:flex;align-items:center;gap:6px;font:12px ui-monospace,monospace;font-weight:600;color:#3f3333}.audio-position i{display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%}footer nav a{color:var(--accent);text-decoration:none;font-size:11px}footer nav a:hover{text-decoration:underline}.guide-page{padding-top:48px}.guide-page h1{font-size:40px}.guide-intro{color:#827777;font-size:15px;line-height:1.7;margin:20px 0 32px}.guide-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}.guide-grid p,.guide-grid li{font-size:13px;line-height:1.8;color:#726868}.guide-grid h2{margin-bottom:18px}.guide-grid h3{font-size:13px;font-weight:600;margin-top:24px}.guide-grid code{font-size:11px;background:#fff5f5;color:#9e4040;padding:2px 4px;border-radius:3px}.guide-grid strong{color:#483c3c;font-weight:600}.guide-table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px}th{text-align:left;color:#807070;font-size:11px;font-weight:500}td,th{padding:12px 6px;border-bottom:1px solid #eee7e7}td{white-space:nowrap;color:#655555}.guide-back{display:inline-block;margin-top:28px;color:var(--accent);font-size:13px;text-decoration:none}.guide-grid ul{padding-left:18px}@media(max-width:850px){.guide-grid{grid-template-columns:1fr}.guide-page h1{font-size:32px}}
 
 .filename-editor{margin:0 0 18px}.filename-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px}.filename-heading label{font-size:11px;color:#6f6262}.filename-heading button{font-size:10px}.filename-input{display:flex;align-items:center;border:1px solid #e9dfdf;border-radius:7px;overflow:hidden;background:white}.filename-input:focus-within{outline:2px solid #f3c1c1;outline-offset:2px}.filename-input input{flex:1;min-width:0;width:100%;border:0;background:transparent;padding:11px 10px;color:#463838;font-size:12px;outline:none}.filename-input>span{font:11px ui-monospace,monospace;color:#a38989;padding:11px 10px;background:#fff8f8;border-left:1px solid #f0e5e5}.filename-editor p{font-size:10px;color:#a18b8b;line-height:1.5;margin:7px 0 0}#resultFilename{overflow-wrap:anywhere}
+
+/* Footer — SOS Lambrate */
+body main > footer{
+  background:#CD0303;
+  color:#fff;
+  padding:22px 26px;
+  border-radius:12px;
+  align-items:center;
+  gap:18px 24px;
+  flex-wrap:wrap;
+  line-height:1.6;
+}
+body main > footer > span:first-child{
+  color:#fff;
+  font-size:17px;
+  font-weight:700;
+}
+body main > footer .muted{
+  display:block;
+  margin:3px 0 0;
+  color:#fff;
+  font-size:11px;
+  font-weight:400;
+}
+body main > footer nav{display:flex;flex-wrap:wrap;gap:10px}
+body main > footer nav a[href]{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:9px 14px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:7px;
+  color:#fff;
+  font-size:12px;
+  font-weight:500;
+  text-decoration:none;
+  text-underline-offset:4px;
+}
+body main > footer nav a[href]:hover{
+  color:#fff;
+  background:rgba(255,255,255,.12);
+  text-decoration:underline;
+}
+body main > footer nav a[href]:focus-visible{
+  color:#fff;
+  outline:2px solid #fff;
+  outline-offset:4px;
+}
+@media(max-width:560px){
+  body main > footer{padding:20px;align-items:flex-start;flex-direction:column;gap:16px}
+}
+
