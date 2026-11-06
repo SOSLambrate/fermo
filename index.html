@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fafafa"><meta name="description" content="Trasforma immagini in un video MP4. Ordine e durata automatici, audio su misura."><title>Fermo — by Marketing SOS Lambrate</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div class="brand-lockup"><a class="brand" href="./"><span class="brand-icon">▥</span> fermo<span class="brand-dot">.</span></a><div class="brand-credit"><span>by Marketing</span><img src="sos-lambrate.png" alt="SOS Lambrate OdV" width="138" height="40"></div></div></header>
+<main>
+<div class="intro"><div><div class="eyebrow">PICCOLO STRUMENTO, ZERO COMPLICAZIONI</div><h1>Le tue immagini.<br>Un video, fatto.</h1><p>Aggiungi le immagini, scegli il tuo audio. Al resto pensa Fermo.</p></div><div class="intro-note"><span>JPG / PNG</span><b>→</b><span>MP4</span></div></div>
+<div id="message" role="status" aria-live="polite" hidden></div>
+<fieldset id="editor"><div class="workspace"><div class="left-column">
+<section class="panel"><div class="section-head"><h2><span class="step">01</span> Le immagini</h2><span id="count" class="muted">La tua sequenza</span></div>
+<label class="dropzone" id="dropzone" for="images"><span class="upload-icon">＋</span><strong>Trascina qui le tue immagini</strong><span>oppure <u>scegli i file</u> · JPG, PNG e WebP</span><input id="images" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+<div class="rule"><span>✦</span><div><b>Il nome fa già metà del lavoro.</b><br><code>parte 1 nome_15sec.jpg</code> → prima immagine, 15 secondi.<br><small>«parte N» e «XXsec» possono stare ovunque. Senza durata: 15 s.</small></div></div>
+<div id="sequence" class="sequence"></div><div id="duplicate" class="warning" hidden></div>
+<div class="list-tools" id="listTools" hidden><span>Trascina le schede o usa le frecce per riordinare.</span><button type="button" class="text-button" id="sort">Riordina per parte ↗</button></div>
+</section>
+<section class="panel audio-panel"><div class="section-head"><h2><span class="step">02</span> La colonna sonora</h2><span class="tag">Facoltativa</span></div>
+<label class="audio-upload" for="audio"><span class="music">♫</span><div><strong id="audioName">Aggiungi una traccia audio</strong><small id="audioSubtitle">MP3, WAV, M4A e altri formati supportati dal browser</small></div><span>＋</span><input id="audio" type="file" accept="audio/*"></label>
+<div id="audioEditor" hidden>
+<div class="audio-window-heading"><span>Il tuo audio, a misura di video</span><strong id="windowDuration">0 s</strong></div>
+<p class="window-instructions" id="windowInstructions">Trascina il riquadro per scegliere il punto di partenza. La durata segue il video.</p>
+<div class="wave-wrap" id="waveWrap"><canvas id="wave" width="1000" height="110" aria-label="Forma d’onda della traccia audio"></canvas><div id="waveSelection" role="slider" tabindex="0" aria-label="Posizione del tratto audio, durata uguale al video" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0"><span id="windowGrip">↔</span></div><div id="audioPlayhead" class="audio-playhead" aria-hidden="true" hidden><span></span></div></div>
+<div class="wave-labels"><span>0:00</span><span id="trackDuration">0:00</span></div>
+<div class="audio-window-controls"><div class="audio-time-info"><span id="selectedInterval"></span><span class="audio-position"><i></i><span id="audioPosition"></span></span></div><button type="button" id="listen" class="secondary">▶ Ascolta selezione</button></div>
+<div class="audio-options"><span class="fixed-duration">⌁ Durata agganciata al video</span><label>Volume <input id="volume" type="range" min="0" max="1" value="1" step="0.01" aria-label="Volume audio"></label></div><div class="audio-footer"><span id="audioHint"></span><button id="removeAudio" type="button" class="text-button">Rimuovi audio</button></div></div>
+</section></div>
+<aside class="panel preview-panel"><div class="section-head"><h2><span class="step">03</span> Anteprima</h2><span class="live-dot"></span></div>
+<div class="stage"><canvas id="preview" width="1080" height="1080" hidden></canvas><div id="placeholder"><div class="frame-art"><span>▧</span></div><strong>Un posto per le tue idee.</strong><p>La tua sequenza apparirà qui.</p></div></div>
+<div class="playback"><button id="play" type="button" class="play-button" aria-label="Riproduci anteprima" disabled>▶</button><input id="seek" type="range" min="0" max="1" step="0.01" value="0" aria-label="Posizione anteprima" disabled><span id="clock">0:00 / 0:00</span></div>
+<div class="preview-settings"><div class="output-info"><span id="dimensions">Dimensioni automatiche</span><span>MP4 · H.265</span></div><p class="footnote">Il formato segue la prima immagine. Immagini intere, senza ritagli, fino a Full HD.</p></div>
+<div class="summary"><span>Durata totale</span><strong id="total">0 s</strong></div>
+<div class="filename-editor"><div class="filename-heading"><label for="filename">Nome del file</label><button id="resetFilename" type="button" class="text-button" disabled>Ripristina automatico</button></div><div class="filename-input"><input id="filename" type="text" maxlength="180" autocomplete="off" spellcheck="false" placeholder="Aggiungi un’immagine" aria-describedby="filenameHint" disabled><span>.mp4</span></div><p id="filenameHint">Il nome viene ricavato dalla prima immagine caricata. Puoi modificarlo.</p></div>
+<button id="export" type="button" class="primary" disabled>Esporta video <span>↓</span></button><p class="export-note">Un unico MP4, pronto da scaricare.</p>
+</aside></div></fieldset>
+<section id="exportProgress" class="progress-panel" hidden><div><strong id="progressLabel">Preparazione…</strong><button type="button" id="cancel" class="secondary">Annulla</button></div><progress id="progress" max="1" value="0"></progress><small>Puoi annullare in qualsiasi momento. Mantieni aperta questa scheda.</small></section>
+<section id="result" class="result" hidden><span class="success-icon">✓</span><div><strong>Il tuo video è pronto.</strong><span id="resultFilename"></span><span id="resultInfo"></span></div><a id="download" class="primary" download="fermo-video.mp4">Scarica MP4 ↓</a></section>
+<footer><span>fermo. <span class="muted">Un piccolo strumento del Marketing SOS Lambrate.</span></span></footer>
+</main><script type="module" src="app.js"></script></body></html>
